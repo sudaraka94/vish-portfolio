@@ -9,6 +9,9 @@ module.exports = {
     siteUrl: urljoin(siteConfig.url, siteConfig.prefix),
     social: {
       twitter: siteConfig.twitter,
+      instagram: siteConfig.instagram,
+      facebook: siteConfig.facebook,
+      medium: siteConfig.medium,
     },
   },
   plugins: [
@@ -79,7 +82,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
+        trackingId: `279769018`,
       },
     },
     `gatsby-plugin-feed`,
@@ -92,7 +95,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `content/assets/icon.png`,
       },
     },
     `gatsby-plugin-netlify`,
