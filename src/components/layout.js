@@ -3,7 +3,6 @@ import { Link } from "gatsby"
 
 const Layout = props => {
   const { siteMetadata, children } = props
-  const { title, social } = siteMetadata
   const [toggleNav, setToggleNav] = React.useState(false)
   return (
     <div className={`site-wrapper ${toggleNav ? `site-head-open` : ``}`}>
@@ -37,13 +36,16 @@ const Layout = props => {
           </nav>
           <div className="site-head-center">
             <Link className="site-head-logo" to={`/`}>
-              {title}
+              {siteMetadata && siteMetadata.title}
             </Link>
           </div>
           <div className="site-head-right">
             <div className="social-links">
               <a
-                href={`https://www.facebook.com/${social && social.facebook}`}
+                href={`https://www.facebook.com/${siteMetadata &&
+                  siteMetadata.social &&
+                  siteMetadata &&
+                  siteMetadata.social.facebook}`}
                 title="Facebook"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -51,7 +53,10 @@ const Layout = props => {
                 Facebook
               </a>
               <a
-                href={`https://twitter.com/${social && social.twitter}`}
+                href={`https://twitter.com/${siteMetadata &&
+                  siteMetadata.social &&
+                  siteMetadata &&
+                  siteMetadata.social.twitter}`}
                 title="Twitter"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -59,7 +64,10 @@ const Layout = props => {
                 Twitter
               </a>
               <a
-                href={`https://${social && social.medium}.medium.com`}
+                href={`https://${siteMetadata &&
+                  siteMetadata.social &&
+                  siteMetadata &&
+                  siteMetadata.social.medium}.medium.com`}
                 title="Medium"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -67,7 +75,10 @@ const Layout = props => {
                 Medium
               </a>
               <a
-                href={`https://www.instagram.com/${social && social.instagram}`}
+                href={`https://www.instagram.com/${siteMetadata &&
+                  siteMetadata.social &&
+                  siteMetadata &&
+                  siteMetadata.social.instagram}`}
                 title="Instagram"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -84,8 +95,9 @@ const Layout = props => {
         </div>
       </main>
       <footer className="site-foot">
-        &copy; {new Date().getFullYear()} <Link to={`/`}>{title}</Link> &mdash;
-        Built with{" "}
+        &copy; {new Date().getFullYear()}{" "}
+        <Link to={`/`}>{siteMetadata && siteMetadata.title}</Link> &mdash; Built
+        with{" "}
         <a
           href="https://gatsbyjs.org"
           target="_blank"

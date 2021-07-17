@@ -9,10 +9,10 @@ import "../utils/normalize.css"
 import "../utils/css/screen.css"
 
 const ElementsPage = ({ data }, location) => {
-  const siteTitle = data.site.siteMetadata.title
+  const siteMetadata = data.site.siteMetadata
 
   return (
-    <Layout title={siteTitle}>
+    <Layout title={siteMetadata}>
       <SEO
         title="All posts"
         keywords={[`blog`, `gatsby`, `javascript`, `react`]}
