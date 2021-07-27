@@ -5,13 +5,18 @@ export default props => (
   <article
     className={`post-card ${props.count % 3 === 0 && `post-card-large`} ${
       props.postClass
-    } ${props.node.frontmatter.thumbnail ? `with-image` : `no-image`}`}
+    } ${
+      props.node.frontmatter.thumbnail || props.node.frontmatter.thumbnailUrl
+        ? `with-image`
+        : `no-image`
+    }`}
     style={
-      props.node.frontmatter.thumbnail && {
-        backgroundImage: `url(${
-          props.node.frontmatter.thumbnail.childImageSharp.fluid.src
-        })`,
-      }
+      (props.node.frontmatter.thumbnailUrl && {
+        backgroundImage: `url(${props.node.frontmatter.thumbnailUrl})`,
+      }) ||
+      (props.node.frontmatter.thumbnail && {
+        backgroundImage: `url(${props.node.frontmatter.thumbnail.childImageSharp.fluid.src})`,
+      })
     }
   >
     <Link to={props.node.fields.slug} className="post-card-link">

@@ -37,7 +37,7 @@ const AboutPage = ({ data }, location) => {
             reliable when it comes to working with clients.
           </p>
           <p>
-            Please do not hesitate to contact me if you need to keep magical
+            Please do not hesitate to contact me if you need to collect magical
             moments in your life.
           </p>
           <figure className="kg-card kg-image-card kg-width-full">
