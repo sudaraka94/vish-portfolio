@@ -23,18 +23,18 @@ const AboutPage = ({ data }, location) => {
           {/* <h3 id="dynamic-styles">About Me</h3> */}
           <p>
             Photography is the best way to freeze the precious moments of your
-            life. And it will bring back the exact emotion you had even after
-            ages. Since I am a memory collector in my personal life, I am more
-            than happy to help people to collect their wonderful memories in
-            their day-to-day lives.
+            life. It will bring back the exact emotion you had even after ages.
+            Since I am a memory collector in my personal life, I am more than
+            happy to help people to collect their wonderful memories in their
+            day-to-day lives.
           </p>
           <p>
             Hello! I am Vishaka, a female freelance photographer based in
             Singapore. I am a creative person who is keen on colors, shapes,
             people, and nature. Photography was one of my hobbies since
-            childhood. If you like my work, trust me I will help you to create
-            and explore the best stories about you. I am friendly, flexible, and
-            reliable when it comes to working with clients.
+            childhood. If you like my work,I will help you to create the best
+            stories about you. I am friendly and reliable when working with
+            clients.
           </p>
           <p>
             Please do not hesitate to contact me if you need to collect magical

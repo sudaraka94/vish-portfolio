@@ -6,7 +6,7 @@ module.exports = {
   prefix: "/",
   author: "Vishaka Pathiraja",
   twitter: "VPathiraja",
-  facebook: "vishaka.pathiraja",
-  instagram: "vish_pathiraja",
+  facebook: "suvi.sg",
+  instagram: "suvi.photography.sg",
   medium: "vishakapathiraja",
 }
