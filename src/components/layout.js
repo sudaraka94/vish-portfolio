@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 
 const Layout = props => {
-  const { title, children } = props
+  const { siteMetadata, children } = props
   const [toggleNav, setToggleNav] = React.useState(false)
   return (
     <div className={`site-wrapper ${toggleNav ? `site-head-open` : ``}`}>
@@ -32,20 +32,20 @@ const Layout = props => {
               <li className="nav-about" role="menuitem">
                 <Link to={`/about`}>About</Link>
               </li>
-              <li className="nav-elements" role="menuitem">
-                <Link to={`/elements`}>Elements</Link>
-              </li>
             </ul>
           </nav>
           <div className="site-head-center">
             <Link className="site-head-logo" to={`/`}>
-              {title}
+              {siteMetadata && siteMetadata.title}
             </Link>
           </div>
           <div className="site-head-right">
             <div className="social-links">
               <a
-                href="https://www.facebook.com"
+                href={`https://www.facebook.com/${siteMetadata &&
+                  siteMetadata.social &&
+                  siteMetadata &&
+                  siteMetadata.social.facebook}`}
                 title="Facebook"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -53,21 +53,38 @@ const Layout = props => {
                 Facebook
               </a>
               <a
-                href="https://twitter.com"
+                href={`https://twitter.com/${siteMetadata &&
+                  siteMetadata.social &&
+                  siteMetadata &&
+                  siteMetadata.social.twitter}`}
                 title="Twitter"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Twitter
               </a>
-              <Link
-                to={`/rss.xml`}
-                title="RSS"
+              <a
+                href={`https://${siteMetadata &&
+                  siteMetadata.social &&
+                  siteMetadata &&
+                  siteMetadata.social.medium}.medium.com`}
+                title="Medium"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                RSS
-              </Link>
+                Medium
+              </a>
+              <a
+                href={`https://www.instagram.com/${siteMetadata &&
+                  siteMetadata.social &&
+                  siteMetadata &&
+                  siteMetadata.social.instagram}`}
+                title="Instagram"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Instagram
+              </a>
             </div>
           </div>
         </div>
@@ -78,8 +95,9 @@ const Layout = props => {
         </div>
       </main>
       <footer className="site-foot">
-        &copy; {new Date().getFullYear()} <Link to={`/`}>{title}</Link> &mdash;
-        Built with{" "}
+        &copy; {new Date().getFullYear()}{" "}
+        <Link to={`/`}>{siteMetadata && siteMetadata.title}</Link> &mdash; Built
+        with{" "}
         <a
           href="https://gatsbyjs.org"
           target="_blank"

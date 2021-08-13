@@ -10,12 +10,12 @@ import "../utils/normalize.css"
 import "../utils/css/screen.css"
 //TODO: switch to staticQuery, get rid of comments, remove unnecessary components, export as draft template
 const BlogIndex = ({ data }, location) => {
-  const siteTitle = data.site.siteMetadata.title
+  const siteMetadata = data.site.siteMetadata
   const posts = data.allMarkdownRemark.edges
   let postCounter = 0
-
+  console.log(data)
   return (
-    <Layout title={siteTitle}>
+    <Layout siteMetadata={siteMetadata}>
       <SEO
         title="All posts"
         keywords={[`blog`, `gatsby`, `javascript`, `react`]}
@@ -51,6 +51,12 @@ const indexQuery = graphql`
       siteMetadata {
         title
         description
+        social {
+          instagram
+          twitter
+          facebook
+          medium
+        }
       }
     }
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
@@ -64,13 +70,7 @@ const indexQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
-            thumbnail {
-              childImageSharp {
-                fluid(maxWidth: 1360) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
+            thumbnailUrl
           }
         }
       }
